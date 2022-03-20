@@ -4,6 +4,15 @@
     if (has_post_thumbnail()) :
         the_post_thumbnail('blog', array('class' => 'featured-image'));
     endif;
+
+    // check current post type 
+    if (get_post_type() === 'gymfitness_classes') :
+        $class_days = get_field('class_days');
+        $start_time = get_field('start_time');
+        $end_time = get_field('end_time');
     ?>
+        <p class="content-class"><?php echo "{$class_days} - from {$start_time} to {$end_time}" ?> </p>
+    <?php endif; ?>
+
     <?php the_content(); ?>
 <?php endwhile; ?>

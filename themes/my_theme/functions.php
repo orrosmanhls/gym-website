@@ -1,4 +1,6 @@
 <?php
+// link to queries file for
+require get_template_directory() . '/inc/queries.php';
 
 //create the Menus
 function my_theme_menus() {
