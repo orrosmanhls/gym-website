@@ -20,7 +20,7 @@
                             </a>
                         </p>
 
-                        <p class="date-publish meta">
+                        <p class="date-published meta">
                             <span class="text-primary">Date: </span>
                             <?php echo the_time(get_option('date_format')); ?>
                         </p>
