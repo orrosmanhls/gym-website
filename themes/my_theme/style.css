@@ -486,3 +486,43 @@ img {
 		grid-row: 2/4;
 	}
 }
+
+/*  Contact Form */
+
+.wpcf7-form p {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.wpcf7-form p label,
+.wpcf7-form p span {
+	flex: 0 0 100%;
+}
+
+.wpcf7-form p span {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.wpcf7-form-control {
+	flex: 0 0 100%;
+	border: 1px solid var(--lightGray);
+	padding: 1rem;
+}
+
+.wpcf7-submit {
+	background: var(--primary);
+	font-size: 2rem;
+	font-family: var(--mainFont);
+	color: var(--white);
+	padding: 1.2rem;
+}
+.wpcf7-submit {
+	cursor: pointer;
+}
+
+/* Map */
+
+#map {
+	height: 300px;
+}
