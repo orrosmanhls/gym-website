@@ -1,6 +1,12 @@
 <?php get_header(); ?>
-<?php while (have_posts()) : the_post(); ?>
-    <h1 class="text-center text-primary"><?php the_title(); ?></h1>
-    <?php the_content(); ?>
-<?php endwhile; ?>
+
+<main class="container page section with-sidebar">
+    <div class="page-content">
+        <!-- page-loop.php => 'page' + 'loop' (divided by dash [-])-->
+        <!-- loop.php => 'template-parts/loop' (NOT divided by dash [-])-->
+        <?php get_template_part('template-parts/page', 'loop'); ?>
+    </div>
+    <?php get_sidebar(); ?>
+</main>
+
 <?php get_footer(); ?>
