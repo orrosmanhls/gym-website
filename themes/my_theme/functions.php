@@ -3,7 +3,8 @@
 require get_template_directory() . '/inc/queries.php';
 
 //create the Menus
-function my_theme_menus() {
+function my_theme_menus()
+{
     register_nav_menus(array('main-menu' => 'Main Menu'));
 }
 
@@ -11,7 +12,8 @@ function my_theme_menus() {
 add_action('init', 'my_theme_menus');
 
 // add stylesheets & JS files
-function my_theme_scripts() {
+function my_theme_scripts()
+{
     /*
         basic structure for wp_<function>:
             wp_<function>(<name of variable> : string,
@@ -31,18 +33,26 @@ function my_theme_scripts() {
     // Slicknav css 
     wp_enqueue_style('slicknavcss', get_template_directory_uri() . '/css/slicknav.min.css', array(), '1.0.10');
 
+    if (basename(get_page_template()) === 'gallery.php') :
+        // Lightbox css 
+        wp_enqueue_style('lightboxcss', get_template_directory_uri() . '/css/lightbox.min.css', array(), '2.1.13');
+    endif;
     // import main style
     wp_enqueue_style('style', get_stylesheet_uri(), array('normalize', 'googlefonts'), '1.0.0');
 
     /** load JS scripts **/
     wp_enqueue_script('slicknavjs', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array('jquery'), '1.0.10', true);
+    if (basename(get_page_template()) === 'gallery.php') :
+        wp_enqueue_script('lightboxjs', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.1.13', true);
+    endif;
 
     wp_enqueue_script('script', get_template_directory_uri() . '/js/scripts.js', array(), '1.0.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
 
-function gymfitness_setup() {
+function gymfitness_setup()
+{
 
     //register new image size
     add_image_size('square', 350, 350, true);
@@ -58,7 +68,8 @@ add_action('after_setup_theme', 'gymfitness_setup');
 
 
 /** Create a WidgetZone **/
-function gymfitness_widgets() {
+function gymfitness_widgets()
+{
     register_sidebar(array(
         'name' => 'Sidebar',
         'id' => 'sidebar',
