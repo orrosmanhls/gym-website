@@ -13,6 +13,10 @@
     <p class="text-center">
         About the author: <?php echo get_the_author_meta('description'); ?>
     </p>
-    <?php get_template_part('template-parts/blog', 'loop'); ?>
+    <ul class="blog-entries">
+        <?php while (have_posts()) : the_post(); ?>
+            <?php get_template_part('template-parts/blog', 'loop'); ?>
+        <?php endwhile; ?>
+    </ul>
 </main>
 <?php get_footer(); ?>
